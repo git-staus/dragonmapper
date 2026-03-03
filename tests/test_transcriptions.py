@@ -202,3 +202,10 @@ class TestConvertFunctions(unittest.TestCase):
 
     def test_pinying_v_to_zhuyin(self):
         self.assertEqual(trans.pinyin_to_zhuyin("lvè"), "ㄌㄩㄝˋ")
+
+    def test_lowercase_accented_pinyin_to_zhuyin(self):
+        zhuyin = trans.pinyin_to_zhuyin(self.uppercase_accented_pinyin.lower())
+        self.assertEqual(zhuyin, self.uppercase_accented_zhuyin)
+
+    def test_pinying_u_with_diaeresis_to_zhuyin(self):
+        self.assertEqual(trans.pinyin_to_zhuyin("lüè"), "ㄌㄩㄝˋ")
